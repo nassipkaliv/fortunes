@@ -873,21 +873,32 @@ main {
   z-index: 2;
 }
 
+.babki {
+  display: none;
+}
+
 
 @media screen and (max-width: 768px) {
   
+  .babki {
+    display: block;
+    position: absolute;
+    z-index: 0;
+    bottom: -5%;
+  }
+
   .language {
     display: none;
   }
 
   .wheel_game {
-    bottom: 180px;
+    bottom: 100px;
   }
   
   .girl {
-    max-width: 95%;
-    right: -32%;
-    bottom: 0;
+    max-width: 80%;
+    right: -27%;
+    bottom: -15px;
   }
 
   .arrow {
@@ -963,8 +974,8 @@ main {
     height: 64px;
   }
   .button_game span {
-    font-size: 25px;
-    line-height: 64px;
+    font-size: 20px;
+    line-height: normal;
   }
 }
 

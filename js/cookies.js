@@ -1,4 +1,4 @@
-        // Функция для установки cookie
+
         function setCookie(name, value, days) {
           var expires = "";
           if (days) {
@@ -9,7 +9,7 @@
           document.cookie = name + "=" + (value || "") + expires + "; path=/";
       }
 
-      // Функция для получения cookie
+    
       function getCookie(name) {
           var nameEQ = name + "=";
           var ca = document.cookie.split(';');
@@ -21,11 +21,9 @@
           return null;
       }
 
-      // Функция для проверки количества вращений и отображения модальных окон
       function checkTurns() {
           var turns = getCookie("turns");
           if (turns && turns >= 2) {
-              // Если пользователь крутил 2 раза, показать модальное окно secondTurn
               $('#secondTurn').modal({
                   escapeClose: false,
                   clickClose: false,
@@ -38,9 +36,8 @@
       document.getElementById("spinButton").addEventListener("click", function() {
           var turns = getCookie("turns") ? parseInt(getCookie("turns")) : 0;
           turns++;
-          setCookie("turns", turns, 7); // Сохраняем на 7 дней
+          setCookie("turns", turns, 7);
         
-          // Показываем соответствующее модальное окно
           if (turns === 1) {
               $('#firstTurn').modal();
           } else if (turns === 2) {
@@ -48,5 +45,4 @@
           }
       });
 
-      // Проверяем состояние при загрузке страницы
       window.onload = checkTurns;

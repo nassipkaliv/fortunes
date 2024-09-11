@@ -111,33 +111,6 @@ header {
   }
 }
 
-.zeus {
-  position: absolute;
-  left: 50%;
-  transform: translateX(10.417vw);
-  top: -2.083vw;
-  width: 37.153vw;
-}
-@media screen and (max-width: 1100px) {
-  .zeus {
-    top: 50%;
-    transform: translate(10.417vw, -50%);
-  }
-}
-@media screen and (max-width: 768px) {
-  .zeus {
-    display: none;
-  }
-}
-
-.mob-zeus {
-  position: absolute;
-  top: 200px;
-  left: 60%;
-  z-index: 10;
-  margin-left: -60px;
-}
-
 main {
   display: flex;
   flex: 1 1 auto;
@@ -417,9 +390,8 @@ body {
 
 .modal {
   z-index: 100;
-  max-width: 720px;
-  width: 720px;
-  height: 415px;
+  max-width: 804px;
+  height: 450px;
   background: rgb(255, 255, 255);
   padding: 52px 60px 25px;
   background: url("../images/modal-big.png") center center no-repeat;

@@ -32,13 +32,14 @@
           <span class="language-title">Language</span>
           <span class="divider">|</span>
           <div class="language-menu">
-              <span>EN</span>
-              <span>FR</span>
-              <span>ES</span>
-              <span>CZ</span>
-              <span>PL</span>
+            <span>EN</span>
+            <span>FR</span>
+            <span>ES</span>
+            <span>CZ</span>
+            <span>PL</span>
           </div>
-      </div>
+        </div>
+        
       
       </header>
 
@@ -86,6 +87,38 @@
   <script type="text/javascript" src="js/wheel_game.js"></script>
   <script type="text/javascript" src="js/frameModal.js"></script>
   <script src="js/slider.js"></script>
+  <script src="js/translate.js"></script>
 
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const languageMenu = document.querySelector('.language-menu');
+  const titleElement = document.querySelector('.title');
+  const buttonElement = document.querySelector('.button_game span');
+  const firstTurnModal = document.querySelector('#firstTurn');
+  const secondTurnModal = document.querySelector('#secondTurn');
+  const languageTitle = document.querySelector('.language-title');
+
+  languageMenu.addEventListener('click', function (event) {
+    const selectedLanguage = event.target.textContent;
+    
+    if (translations[selectedLanguage]) {
+      titleElement.textContent = translations[selectedLanguage].title;
+
+      buttonElement.textContent = translations[selectedLanguage].buttonText;
+
+      firstTurnModal.querySelector('.congrText').textContent = translations[selectedLanguage].modalFirstTurn.congrats;
+      firstTurnModal.querySelector('.prizeText').innerHTML = translations[selectedLanguage].modalFirstTurn.prize;
+      firstTurnModal.querySelector('.modal-btn').textContent = translations[selectedLanguage].modalFirstTurn.continue;
+
+      secondTurnModal.querySelector('.congrText').textContent = translations[selectedLanguage].modalSecondTurn.congrats;
+      secondTurnModal.querySelector('.prizeText').innerHTML = translations[selectedLanguage].modalSecondTurn.prize;
+      secondTurnModal.querySelector('.modal-btn').textContent = translations[selectedLanguage].modalSecondTurn.continue;
+
+      languageTitle.textContent = translations[selectedLanguage].languageTitle;
+    }
+  });
+});
+
+  </script>
 
 </body></html>

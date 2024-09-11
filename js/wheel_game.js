@@ -4,7 +4,7 @@ oneMore = document.querySelector(".one-more");
 let counter = 0;
 gameButton.addEventListener("click", (() => {
 	if (0 === counter) gameButton.setAttribute("disabled", "true"), gameField.animate([{
-		transform: "rotate(1290deg)"
+		transform: "rotate(1395deg)"
 	}], {
 		duration: 3e3,
 		iterations: 1,
@@ -15,7 +15,7 @@ gameButton.addEventListener("click", (() => {
 	}), 3300);
 	else if (1 === counter) {
 		gameButton.setAttribute("disabled", "true"), gameField.animate([{
-			transform: "rotate(2430deg)"
+			transform: "rotate(3430deg)"
 		}], {
 			duration: 3e3,
 			iterations: 1,
@@ -28,7 +28,7 @@ gameButton.addEventListener("click", (() => {
 	}
 })), oneMore.addEventListener("click", (() => {
 	gameButton.setAttribute("disabled", "true"), gameField.animate([{
-		transform: "rotate(2430deg)"
+		transform: "rotate(3734deg)"
 	}], {
 		duration: 3e3,
 		iterations: 1,

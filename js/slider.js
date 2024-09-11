@@ -1,0 +1,1 @@
+$(".single").slick({dots:!1,arrows:!0,swipe:!0,fade:!0,infinite:!1});

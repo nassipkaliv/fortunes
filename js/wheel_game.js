@@ -6,10 +6,14 @@ function setCookie(name, value, days) {
 }
 
 function getCookie(name) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(';').shift();
-  return "";
+  const nameEQ = name + "=";
+  const ca = document.cookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
 }
 
 const gameButton = document.querySelector(".button_game"),
@@ -17,8 +21,9 @@ const gameButton = document.querySelector(".button_game"),
   oneMore = document.querySelector(".one-more");
 let counter = 0;
 
-if (getCookie('spinCount')) {
-  counter = parseInt(getCookie('spinCount'));
+const spinCountCookie = getCookie('spinCount');
+if (spinCountCookie) {
+  counter = parseInt(spinCountCookie, 10);
   if (counter >= 2) {
     $("#secondTurn").modal();
     gameButton.setAttribute("disabled", "true");
@@ -58,7 +63,6 @@ gameButton.addEventListener("click", () => {
       $("#secondTurn").modal();
       gameButton.removeAttribute("disabled");
     }, 3300);
-    document.querySelector(".btn-reg").classList.toggle("active");
   }
 });
 

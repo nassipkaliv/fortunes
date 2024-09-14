@@ -90,35 +90,42 @@
   <script src="js/translate.js"></script>
 
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-  const languageMenu = document.querySelector('.language-menu');
-  const titleElement = document.querySelector('.title');
-  const buttonElement = document.querySelector('.button_game span');
-  const firstTurnModal = document.querySelector('#firstTurn');
-  const secondTurnModal = document.querySelector('#secondTurn');
-  const languageTitle = document.querySelector('.language-title');
-
-  languageMenu.addEventListener('click', function (event) {
-    const selectedLanguage = event.target.textContent;
+    document.addEventListener("DOMContentLoaded", function () {
+      const languageMenu = document.querySelector('.language-menu');
+      const titleElement = document.querySelector('.title');
+      const buttonElement = document.querySelector('.button_game span');
+      const firstTurnModal = document.querySelector('#firstTurn');
+      const secondTurnModal = document.querySelector('#secondTurn');
+      const languageTitle = document.querySelector('.language-title');
+      
+      // Определение языка браузера
+      const browserLanguage = navigator.language.slice(0, 2).toUpperCase(); // Получаем язык браузера (например, 'EN', 'FR')
     
-    if (translations[selectedLanguage]) {
-      titleElement.textContent = translations[selectedLanguage].title;
-
-      buttonElement.textContent = translations[selectedLanguage].buttonText;
-
-      firstTurnModal.querySelector('.congrText').textContent = translations[selectedLanguage].modalFirstTurn.congrats;
-      firstTurnModal.querySelector('.prizeText').innerHTML = translations[selectedLanguage].modalFirstTurn.prize;
-      firstTurnModal.querySelector('.modal-btn').textContent = translations[selectedLanguage].modalFirstTurn.continue;
-
-      secondTurnModal.querySelector('.congrText').textContent = translations[selectedLanguage].modalSecondTurn.congrats;
-      secondTurnModal.querySelector('.prizeText').innerHTML = translations[selectedLanguage].modalSecondTurn.prize;
-      secondTurnModal.querySelector('.modal-btn').textContent = translations[selectedLanguage].modalSecondTurn.continue;
-
-      languageTitle.textContent = translations[selectedLanguage].languageTitle;
-    }
-  });
-});
-
-  </script>
+      // Функция для изменения языка
+      function applyLanguage(selectedLanguage) {
+        if (translations[selectedLanguage]) {
+          titleElement.textContent = translations[selectedLanguage].title;
+          buttonElement.textContent = translations[selectedLanguage].buttonText;
+          firstTurnModal.querySelector('.congrText').textContent = translations[selectedLanguage].modalFirstTurn.congrats;
+          firstTurnModal.querySelector('.prizeText').innerHTML = translations[selectedLanguage].modalFirstTurn.prize;
+          firstTurnModal.querySelector('.modal-btn').textContent = translations[selectedLanguage].modalFirstTurn.continue;
+          secondTurnModal.querySelector('.congrText').textContent = translations[selectedLanguage].modalSecondTurn.congrats;
+          secondTurnModal.querySelector('.prizeText').innerHTML = translations[selectedLanguage].modalSecondTurn.prize;
+          secondTurnModal.querySelector('.modal-btn').textContent = translations[selectedLanguage].modalSecondTurn.continue;
+          languageTitle.textContent = translations[selectedLanguage].languageTitle;
+        }
+      }
+    
+      // Установка языка по умолчанию на основе языка браузера
+      applyLanguage(browserLanguage);
+    
+      // Изменение языка при клике на меню выбора языка
+      languageMenu.addEventListener('click', function (event) {
+        const selectedLanguage = event.target.textContent;
+        applyLanguage(selectedLanguage);
+      });
+    });
+    </script>
+    
 
 </body></html>
